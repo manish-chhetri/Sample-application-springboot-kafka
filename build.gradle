@@ -1,0 +1,34 @@
+buildscript {
+    ext {
+        springBootVersion = '2.7.11'
+        kafkaVersion = '2.9.0'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.4.3'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group 'com.springboot-kafka'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.kafka:spring-kafka:$kafkaVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
